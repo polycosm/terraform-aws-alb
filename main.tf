@@ -37,7 +37,7 @@ resource "aws_lb_listener" "https" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = var.widlcard_certificate.arn
+  certificate_arn   = var.wildcard_certificate.arn
 
   default_action {
     type = "fixed-response"
