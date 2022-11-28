@@ -32,12 +32,12 @@ resource "aws_lb_listener" "http_redirect_to_https" {
 
 /* Add a default https (port 433) listener that returns a 404.
  */
-resource "aws_lb_listener" "https_not_found" {
+resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.alb.id
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = var.certificate_arn
+  certificate_arn   = var.widlcard_certificate.arn
 
   default_action {
     type = "fixed-response"
